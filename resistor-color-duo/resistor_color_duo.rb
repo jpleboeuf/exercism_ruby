@@ -15,6 +15,6 @@ class ResistorColorDuo
     raise "Expecting an array for parameter `colors`: #{colors.inspect}" unless colors.kind_of?(Array)
     raise "Expecting an array of size between 2 and 3 for parameter `colors`: #{colors.inspect}" unless colors.length >= 2 and colors.length <= 3
     raise "Expecting an array of strings among: " + CV.keys.join(", ") + "for parameter `colors`: #{colors.inspect}" unless CV.key?(colors[0]) and CV.key?(colors[1])
-    CV[colors[0]] * 10 + CV[colors[1]]
+    colors.first(2).map(&CV).join('').to_i
   end
 end
