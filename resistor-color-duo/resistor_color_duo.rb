@@ -1,8 +1,20 @@
-=begin
-Write your code for the 'Resistor Color Duo' exercise in this file. Make the tests in
-`resistor_color_duo_test.rb` pass.
-
-To get started with TDD, see the `README.md` file in your
-`ruby/resistor-color-duo` directory.
-=end
-
+class ResistorColorDuo
+  CV = {
+      'black'  => 0,
+      'brown'  => 1,
+      'red'    => 2,
+      'orange' => 3,
+      'yellow' => 4,
+      'green'  => 5,
+      'blue'   => 6,
+      'violet' => 7,
+      'grey'   => 8,
+      'white'  => 9,
+    }
+  def self.value(colors)
+    raise "Expecting an array for parameter `colors`: #{colors.inspect}" unless colors.kind_of?(Array)
+    raise "Expecting an array of size between 2 and 3 for parameter `colors`: #{colors.inspect}" unless colors.length >= 2 and colors.length <= 3
+    raise "Expecting an array of strings among: " + CV.keys.join(", ") + "for parameter `colors`: #{colors.inspect}" unless CV.key?(colors[0]) and CV.key?(colors[1])
+    CV[colors[0]] * 10 + CV[colors[1]]
+  end
+end
