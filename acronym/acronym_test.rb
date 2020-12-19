@@ -3,6 +3,7 @@ require_relative 'acronym'
 
 # Common test data version: 1.7.0 cacf1f1
 class AcronymTest < Minitest::Test
+
   def test_basic
     # skip
     assert_equal "PNG", Acronym.abbreviate('Portable Network Graphics')
@@ -37,4 +38,15 @@ class AcronymTest < Minitest::Test
     skip
     assert_equal "SIMUFTA", Acronym.abbreviate('Something - I made up from thin air')
   end
+
+  def test_apostrophes
+    skip
+    assert_equal "HC", Acronym.abbreviate('Halley\'s Comet')
+  end
+
+  def test_underscore_emphasis
+    skip
+    assert_equal "TRNT", Acronym.abbreviate('The Road _Not_ Taken')
+  end
+
 end
