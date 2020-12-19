@@ -49,4 +49,24 @@ class AcronymTest < Minitest::Test
     assert_equal "TRNT", Acronym.abbreviate('The Road _Not_ Taken')
   end
 
+  def test_recursive_1
+    skip
+    assert_equal "GNU", Acronym.abbreviate('GNU\'s Not Unix!')
+  end
+
+  def test_recursive_2
+    skip
+    assert_equal "LAME", Acronym.abbreviate('LAME Ain\'t an MP3 Encoder')
+  end
+
+  def test_recursive_3
+    skip
+    assert_equal "PHP", Acronym.abbreviate('PHP: Hypertext Preprocessor')
+  end
+
+  def test_recursive_4
+    skip
+    assert_equal "HURD", Acronym.abbreviate('HIRD of Unix-replacing daemons')
+  end
+
 end
